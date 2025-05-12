@@ -7,7 +7,6 @@ API para la gestión de Microservicios, Endpoints y Scopes. Este proyecto propor
 - [Descripción General](#descripción-general)
 - [Funcionalidades](#funcionalidades)
 - [Tecnologías Utilizadas](#tecnologías-utilizadas)
-- [Estructura del Proyecto](#estructura-del-proyecto)
 - [Esquema de la Base de Datos](#esquema-de-la-base-de-datos)
 - [Configuración e Instalación](#configuración-e-instalación)
 - [Desarrollo con Docker Compose](#desarrollo-con-docker-compose)
@@ -53,8 +52,6 @@ Este proyecto implementa un servidor API utilizando Fastify y TypeScript. Permit
 - **Inyección de Dependencias**: [tsyringe](https://github.com/microsoft/tsyringe)
 - **Validación de Esquemas**: [@sinclair/typebox](https://github.com/sinclairzx81/typebox)
 - **Documentación API**: [@fastify/swagger](https://github.com/fastify/fastify-swagger) y [@fastify/swagger-ui](https://github.com/fastify/fastify-swagger-ui)
-
-## Estructura del Proyecto
 
 ## Esquema de la Base de Datos
 
