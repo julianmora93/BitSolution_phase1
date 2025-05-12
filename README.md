@@ -99,7 +99,7 @@ Definido en <mcfile name="schema.prisma" path="d:\Desarrollo\BitSolution\phase_1
     La variable más importante es `DATABASE_URL` para la conexión a PostgreSQL.
     Ejemplo:
     ```env
-    DATABASE_URL="postgresql://user:password@host:port/database_name?schema=public"
+    DATABASE_URL="postgresql://bitsolution:bitsolution@localhost:5432/db_test"
     ```
 
 4.  **Ejecutar migraciones de Prisma**:
