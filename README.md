@@ -185,82 +185,82 @@ All endpoints return a standard response structure defined in [default.response.
 ### Microservices
 
 Base path: `/microservices`
-Controller: <mcsymbol name="MicroserviceController" filename="controller.ts" path="src\microservice\controller.ts" startline="7" type="class"></mcsymbol>
-Routes: <mcfile name="routes.ts" path="src\microservice\routes.ts"></mcfile>
+Controlador: [MicroserviceController](src\microservice\controller.ts)
+Rutas: [routes.ts](src\microservice\routes.ts)
 
 -   **`GET /microservices`**
     -   Description: Get all microservices.
-    -   Controller: <mcsymbol name="MicroserviceController.getAll" filename="controller.ts" path="src\microservice\controller.ts" startline="13" type="function"></mcsymbol>
+    -   Controller: [MicroserviceController.getAll](src\microservice\controller.ts)
 -   **`GET /microservices/:id`**
     -   Description: Get a microservice by ID.
     -   Parameters: `id` (number)
-    -   Controller: <mcsymbol name="MicroserviceController.getById" filename="controller.ts" path="src\microservice\controller.ts" startline="39" type="function"></mcsymbol>
+    -   Controller: [MicroserviceController.getById](src\microservice\controller.ts)
 -   **`POST /microservices`**
     -   Description: Create a new microservice.
     -   Body: `CreateOrUpdateMicroserviceDTO` (`name`: string, `description`: string)
-    -   Controller: <mcsymbol name="MicroserviceController.create" filename="controller.ts" path="src\microservice\controller.ts" startline="71" type="function"></mcsymbol>
+    -   Controller: [MicroserviceController.create](src\microservice\controller.ts)
 -   **`PUT /microservices/:id`**
     -   Description: Update an existing microservice.
     -   Parameters: `id` (number)
     -   Body: `CreateOrUpdateMicroserviceDTO` (`name`?: string, `description`?: string)
-    -   Controller: <mcsymbol name="MicroserviceController.update" filename="controller.ts" path="src\microservice\controller.ts" startline="96" type="function"></mcsymbol>
+    -   Controller: [MicroserviceController.delete](src\microservice\controller.ts)
 -   **`DELETE /microservices/:id`**
     -   Description: Delete a microservice.
     -   Parameters: `id` (number)
-    -   Controller: <mcsymbol name="MicroserviceController.delete" filename="controller.ts" path="src\microservice\controller.ts" startline="129" type="function"></mcsymbol>
+    -   Controller: [MicroserviceController.delete](src\microservice\controller.ts)
 
 ### Endpoints
 
 Base path: `/endpoints`
-Controller: <mcsymbol name="EndpointController" filename="controller.ts" path="src\endpoint\controller.ts" startline="7" type="class"></mcsymbol>
-Routes: <mcfile name="routes.ts" path="src\endpoint\routes.ts"></mcfile>
+Controlador: [EndpointController](src\endpoint\controller.ts)
+Rutas: [routes.ts](src\endpoint\routes.ts)
 
 -   **`GET /endpoints`**
     -   Description: Get all endpoints.
-    -   Controller: <mcsymbol name="EndpointController.getAll" filename="controller.ts" path="src\endpoint\controller.ts" startline="13" type="function"></mcsymbol>
+    -   Controller: [EndpointController.getAll](src\endpoint\controller.ts)
 -   **`GET /endpoints/:id`**
     -   Description: Get an endpoint by ID.
     -   Parameters: `id` (number)
-    -   Controller: <mcsymbol name="EndpointController.getById" filename="controller.ts" path="src\endpoint\controller.ts" startline="39" type="function"></mcsymbol>
+    -   Controller: [EndpointController.getById](src\endpoint\controller.ts)
 -   **`POST /endpoints`**
     -   Description: Create a new endpoint.
     -   Body: `CreateEndpointDTO` (`path`: string, `name`: string, `method`: string, `microserviceId`: number, `scopeId`?: number)
-    -   Controller: <mcsymbol name="EndpointController.create" filename="controller.ts" path="src\endpoint\controller.ts" startline="71" type="function"></mcsymbol>
+    -   Controller: [EndpointController.create](src\endpoint\controller.ts)
 -   **`PUT /endpoints/:id`**
     -   Description: Update an existing endpoint.
     -   Parameters: `id` (number)
-    -   Body: `UpdateEndpointDTO` (campos opcionales de `CreateEndpointDTO`)
-    -   Controller: <mcsymbol name="EndpointController.update" filename="controller.ts" path="src\endpoint\controller.ts" startline="98" type="function"></mcsymbol>
+    -   Body: `UpdateEndpointDTO` (optional fields from `CreateEndpointDTO`)
+    -   Controller: [EndpointController.update](src\endpoint\controller.ts)
 -   **`DELETE /endpoints/:id`**
     -   Description: Delete an endpoint.
     -   Parameters: `id` (number)
-    -   Controller: <mcsymbol name="EndpointController.delete" filename="controller.ts" path="src\endpoint\controller.ts" startline="132" type="function"></mcsymbol>
+    -   Controller: [EndpointController.delete](src\endpoint\controller.ts)
 
 ### Scopes
 
 Rutas base: `/scopes`
-Controlador: <mcsymbol name="ScopeController" filename="controller.ts" path="src\scope\controller.ts" startline="7" type="class"></mcsymbol>
-Rutas: <mcfile name="routes.ts" path="src\scope\routes.ts"></mcfile>
+Controlador: [ScopeController](src\scope\controller.ts)
+Rutas: [routes.ts](src\scope\routes.ts)
 
 -   **`GET /scopes`**
     -   Description: Get all scopes.
-    -   Controller: <mcsymbol name="ScopeController.getAll" filename="controller.ts" path="src\scope\controller.ts" startline="13" type="function"></mcsymbol>
+    -   Controller: [ScopeController.getAll](src\scope\controller.ts)
 -   **`GET /scopes/:id`**
     -   Description: Get a scope by ID.
     -   Parameters: `id` (number)
-    -   Controller: <mcsymbol name="ScopeController.getById" filename="controller.ts" path="src\scope\controller.ts" startline="39" type="function"></mcsymbol>
+    -   Controller: [ScopeController.getById](src\scope\controller.ts)
 -   **`POST /scopes`**
     -   Description: Create a new scope.
     -   Body: `CreateOrUpdateScopeDTO` (`name`: string)
-    -   Controller: <mcsymbol name="ScopeController.create" filename="controller.ts" path="src\scope\controller.ts" startline="71" type="function"></mcsymbol>
+    -   Controller: [ScopeController.create](src\scope\controller.ts)
 -   **`PUT /scopes/:id`**
     -   Description: Update an existing scope.
     -   Parameters: `id` (number)
     -   Body: `CreateOrUpdateScopeDTO` (`name`: string)
-    -   Controller: <mcsymbol name="ScopeController.update" filename="controller.ts" path="src\scope\controller.ts" startline="98" type="function"></mcsymbol>
+    -   Controller: [ScopeController.update](src\scope\controller.ts)
 -   **`DELETE /scopes/:id`**
     -   Description: Delete a scope.
     -   Parameters: `id` (number)
-    -   Controller: <mcsymbol name="ScopeController.delete" filename="controller.ts" path="src\scope\controller.ts" startline="136" type="function"></mcsymbol>
+    -   Controller: [ScopeController.delete](src\scope\controller.ts)
 
 ---
