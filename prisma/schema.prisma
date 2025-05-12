@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Microservice {
+  id          Int         @id @default(autoincrement())
+  name        String
+  description String
+  endpoints   Endpoint[]
+}
+
+model Endpoint {
+  id             Int        @id @default(autoincrement())
+  path           String
+  name           String
+  method         String
+  microserviceId Int
+  microservice   Microservice @relation(fields: [microserviceId], references: [id])
+  scopeId        Int?        @unique
+  scope          Scope?      @relation(fields: [scopeId], references: [id])
+}
+
+model Scope {
+  id        Int      @id @default(autoincrement())
+  name      String
+  endpoint  Endpoint?
+}
