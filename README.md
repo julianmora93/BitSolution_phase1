@@ -1,5 +1,4 @@
-
-# BitSolution - Phase 1
+# BitSolution API - Phase 1
 
 API para la gestión de Microservicios, Endpoints y Scopes. Este proyecto proporciona una interfaz RESTful para administrar los componentes centrales de una arquitectura de microservicios.
 
@@ -49,7 +48,7 @@ Este proyecto implementa un servidor API utilizando Fastify y TypeScript. Permit
 - **Framework**: [Fastify](https://www.fastify.io/)
 - **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
 - **ORM**: [Prisma](https://www.prisma.io/)
-- **Base de Datos**: PostgreSQL
+- **Base de Datos**: PostgreSQL (configurable a través de `DATABASE_URL`)
 - **Contenerización**: [Docker](https://www.docker.com/) / [Docker Compose](https://docs.docker.com/compose/)
 - **Inyección de Dependencias**: [tsyringe](https://github.com/microsoft/tsyringe)
 - **Validación de Esquemas**: [@sinclair/typebox](https://github.com/sinclairzx81/typebox)
@@ -86,7 +85,7 @@ Definido en <mcfile name="schema.prisma" path="d:\Desarrollo\BitSolution\phase_1
 
 1.  **Clonar el repositorio (si aplica)**:
     ```bash
-    git clone <url-del-repositorio>
+    git clone [<url-del-repositorio>](https://github.com/julianmora93/BitSolution_phase1.git)
     cd phase_1
     ```
 
@@ -113,6 +112,56 @@ Definido en <mcfile name="schema.prisma" path="d:\Desarrollo\BitSolution\phase_1
     ```bash
     npx prisma generate
     ```
+
+## Desarrollo con Docker Compose
+
+El archivo <mcfile name="docker-compose.yml" path="d:\Desarrollo\BitSolution\phase_1\docker-compose.yml"></mcfile> se proporciona para facilitar la configuración de la base de datos PostgreSQL en un entorno de desarrollo local.
+
+**Contenido de `docker-compose.yml`:**
+```yaml
+version: '1.0'
+
+services:
+  postgres:
+    image: postgres
+    container_name: db-bitsolution
+    environment:
+      POSTGRES_USER: bitsolution
+      POSTGRES_PASSWORD: bitsolution
+      POSTGRES_DB: db_test
+    ports:
+      - "5432:5432" # Expone el puerto de PostgreSQL al host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persiste los datos de la BD
+
+volumes:
+  postgres_data:
+```
+
+Para iniciar la base de datos PostgreSQL con Docker Compose, ejecuta:
+```bash
+docker-compose up -d
+```
+
+Para detener la base de datos PostgreSQL con Docker Compose, ejecuta:
+```bash
+docker-compose down
+```
+
+Para reconstruir en caso de hacer cambios en el archivo DockerFile o dependencias, puedes ejecutar:
+```bash
+docker-compose up -d --build
+```
+
+Para ver los contenedores que se están ejecutando:
+```bash
+docker ps
+```
+
+Acceder al contenedor de PostgreSQL::
+```bash
+docker exec -it db-bitsolution bash
+```
 
 ## Scripts Disponibles
 
