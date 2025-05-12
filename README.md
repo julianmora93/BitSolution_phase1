@@ -82,7 +82,10 @@ Definido en <mcfile name="schema.prisma" path="d:\Desarrollo\BitSolution\phase_1
 
 1.  **Clonar el repositorio (si aplica)**:
     ```bash
-    git clone [<url-del-repositorio>](https://github.com/julianmora93/BitSolution_phase1.git)
+    git clone https://github.com/julianmora93/BitSolution_phase1.git
+    ```
+
+    ```bash
     cd phase_1
     ```
 
