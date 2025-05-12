@@ -1,0 +1,656 @@
+{
+    "info": {
+      "_postman_id": "d7f7f1d8-1234-5678-9abc-def012345678",
+      "name": "BitSolution API",
+      "description": "Colección de Postman para los servicios de BitSolution",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "variable": [
+        {
+          "key": "baseUrl",
+          "value": "http://localhost:3000",
+          "type": "string"
+        }
+      ]
+    },
+    "item": [
+      {
+        "name": "Microservices",
+        "description": "Operaciones relacionadas con Microservicios",
+        "item": [
+          {
+            "name": "Create Microservice",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 201 (Created)\", function () {",
+                    "    pm.response.to.have.status(201);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Auth Service\",\n  \"description\": \"Handles authentication and authorization\",\n  \"baseUrl\": \"http://localhost:3001/api\",\n  \"status\": \"ACTIVE\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{baseUrl}}/api/microservices",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "microservices"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Microservices",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200\", function () {",
+                    "    pm.response.to.have.status(200);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/microservices",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "microservices"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Microservice By ID",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200\", function () {",
+                    "    pm.response.to.have.status(200);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/microservices/example-microservice-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "microservices",
+                  "example-microservice-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-microservice-id",
+                    "description": "ID del Microservicio"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Microservice",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200 or 204\", function () {",
+                    "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Updated Auth Service\",\n  \"status\": \"INACTIVE\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{baseUrl}}/api/microservices/example-microservice-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "microservices",
+                  "example-microservice-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-microservice-id",
+                    "description": "ID del Microservicio"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Microservice",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200 or 204\", function () {",
+                    "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/microservices/example-microservice-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "microservices",
+                  "example-microservice-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-microservice-id",
+                    "description": "ID del Microservicio"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Endpoints",
+        "description": "Operaciones relacionadas con Endpoints de API",
+        "item": [
+          {
+            "name": "Create Endpoint",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 201 (Created)\", function () {",
+                    "    pm.response.to.have.status(201);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"path\": \"/users\",\n  \"method\": \"GET\",\n  \"description\": \"Get all users\",\n  \"microserviceId\": \"your-microservice-uuid-here\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{baseUrl}}/api/endpoints",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "endpoints"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Endpoints",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200\", function () {",
+                    "    pm.response.to.have.status(200);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/endpoints",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "endpoints"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Endpoint By ID",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200\", function () {",
+                    "    pm.response.to.have.status(200);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/endpoints/example-endpoint-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "endpoints",
+                  "example-endpoint-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-endpoint-id",
+                    "description": "ID del Endpoint"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Endpoint",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200 or 204\", function () {",
+                    "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"description\": \"Get all users and their profiles\",\n  \"method\": \"POST\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{baseUrl}}/api/endpoints/example-endpoint-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "endpoints",
+                  "example-endpoint-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-endpoint-id",
+                    "description": "ID del Endpoint"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Endpoint",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200 or 204\", function () {",
+                    "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/endpoints/example-endpoint-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "endpoints",
+                  "example-endpoint-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-endpoint-id",
+                    "description": "ID del Endpoint"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Scopes",
+        "description": "Operaciones relacionadas con Scopes de autorización",
+        "item": [
+          {
+            "name": "Create Scope",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 201 (Created)\", function () {",
+                    "    pm.response.to.have.status(201);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"read:users\",\n  \"description\": \"Permission to read user data\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{baseUrl}}/api/scopes",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "scopes"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get All Scopes",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200\", function () {",
+                    "    pm.response.to.have.status(200);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/scopes",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "scopes"
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Get Scope By ID",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200\", function () {",
+                    "    pm.response.to.have.status(200);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/scopes/example-scope-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "scopes",
+                  "example-scope-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-scope-id",
+                    "description": "ID del Scope"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Update Scope",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200 or 204\", function () {",
+                    "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"description\": \"Allows reading all user data and profiles\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "{{baseUrl}}/api/scopes/example-scope-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "scopes",
+                  "example-scope-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-scope-id",
+                    "description": "ID del Scope"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "Delete Scope",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "exec": [
+                    "pm.test(\"Status code is 200 or 204\", function () {",
+                    "    pm.expect(pm.response.code).to.be.oneOf([200, 204]);",
+                    "});"
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "{{baseUrl}}/api/scopes/example-scope-id",
+                "host": [
+                  "{{baseUrl}}"
+                ],
+                "path": [
+                  "api",
+                  "scopes",
+                  "example-scope-id"
+                ],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "example-scope-id",
+                    "description": "ID del Scope"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+  }
